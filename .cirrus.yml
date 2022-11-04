@@ -21,7 +21,7 @@ task:
 
   Sync-rom_script:
      - git config --global user.name "IQ-7"
-     - git config --global user.email "$EMAIL"
+     - git config --global user.email "kuninganprojek@gmail.com"
      - echo "$credentials" > ~/.git-credentials
      - git config --global credential.helper store --file=~/.git-credentials
      - ./script/sync.sh
