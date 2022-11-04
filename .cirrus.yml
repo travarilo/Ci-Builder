@@ -3,11 +3,13 @@ env:
   TG_TOKEN: "ENCRYPTED[7cd4d6029748623f01168eb55e6970807efcd3bae446ec8a68a7249e426e645892f65c096ed38135f2b7a8cd2587509b]"
   TG_CHAT_ID: "ENCRYPTED[adb9b324ef9147f24a670d811500958917a7cbd76d33a5b9662ad0bad36ec07804f27e73a01d23f285c2eb675f368e4f]"
   WORKDIR: "/tmp"
+  EMAIL: "ENCRYPTED[554ba361f6fd0e6a461ec6bc03e454ef636b511f099fbe989fc262abd1b9839336894114487c714cb71eb5b189791345]"
   CIRRUS_CLONE_DEPTH: "1"
+  credentials: "ENCRYPTED[cc98a50f4b1e48d3a4f26ccbfc111463de1fe30a4cab58fcdb716d564152647a37ee0957ef1bb9a8f5b94981ec47a97d]"
 
 task:
   name: "Setting Up, Syncing, Building and Uploading"
-  only_if: $CIRRUS_REPO_OWNER == 'AnGgIt88'
+  only_if: $CIRRUS_REPO_OWNER == 'IQ-7'
   timeout_in: 120m
   container:
     image: anggit86/ubuntu:22.04
@@ -18,6 +20,10 @@ task:
      - ./script/load_ccache.sh
 
   Sync-rom_script:
+     - git config --global user.name "IQ-7"
+     - git config --global user.email "$EMAIL"
+     - echo "$credentials" > ~/.git-credentials
+     - git config --global credential.helper store --file=~/.git-credentials
      - ./script/sync.sh
      
   Build-rom_script:
