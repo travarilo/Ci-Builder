@@ -24,4 +24,4 @@ make bacon -j8  > reading # Jangan di hapus text line (> reading)
 retVal=$?
 timeEnd
 statusBuild
-# Build BananaDroid A12L
+# Build BananaDroid v2.1 Susu
