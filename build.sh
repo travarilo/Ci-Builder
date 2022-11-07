@@ -9,6 +9,7 @@ timeStart
 
 source build/envsetup.sh
 export TZ=Asia/Jakarta
+export WITH_GAPPS=true
 export KBUILD_BUILD_USER=IQ-7
 export KBUILD_BUILD_HOST=Corp
 export BUILD_USERNAME=IQ-7
