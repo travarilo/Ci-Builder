@@ -27,15 +27,11 @@ msg Upload rom..
 echo ━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━
 cd $WORKDIR/rom/$name_rom
 engzip=$(ls out/target/product/$device/*-eng*.zip | grep -v "retrofit" || true)
-otazip=$(ls out/target/product/$device/*-ota-*.zip | grep -v "hentai" | grep -v "evolution" || true)
-awaken=$(ls out/target/product/$device/Project-Awaken*.zip || true)
-octavi=$(ls out/target/product/$device/OctaviOS-R*.zip || true)
-p404=$(ls out/target/product/$device/?.*zip || true)
-cipher=$(ls out/target/product/$device/CipherOS-*-OTA-*.zip || true)
-rm -rf $engzip $otazip $awaken $octavi $p404 $cipher
+otazip=$(ls out/target/product/$device/*-ota-*.zip | grep -v "banana" || true)
+banana=$(ls out/target/product/$device/BananaDroid*.zip || true)
+rm -rf $engzip $otazip
 file_name=$(basename out/target/product/$device/*.zip)
-DL_LINK=https://nfs.projek.workers.dev/0:/$name_rom/$device/$file_name
-rclone copy out/target/product/$(grep unch $CIRRUS_WORKING_DIR/build.sh -m 1 | cut -d ' ' -f 2 | cut -d _ -f 2 | cut -d - -f 1)/*.zip NFS:$(grep init $CIRRUS_WORKING_DIR/build.sh -m 1 | cut -d / -f 4)/$(grep unch $CIRRUS_WORKING_DIR/build.sh -m 1 | cut -d ' ' -f 2 | cut -d _ -f 2 | cut -d - -f 1) -P
+rclone copy out/target/product/$(grep unch $CIRRUS_WORKING_DIR/build.sh -m 1 | cut -d ' ' -f 2 | cut -d _ -f 2 | cut -d - -f 1)/*.zip trav:$(grep init $CIRRUS_WORKING_DIR/build.sh -m 1 | cut -d / -f 4)/$(grep unch $CIRRUS_WORKING_DIR/build.sh -m 1 | cut -d ' ' -f 2 | cut -d _ -f 2 | cut -d - -f 1) -P
 cd $WORKDIR/rom/$name_rom/out/target/product/$device
 echo -e \
 "
@@ -48,7 +44,6 @@ echo -e \
 <b>📱 Device :- "${device}"</b>
 <b>📂 Size :- "$(ls -lh *zip | cut -d ' ' -f5)"</b>
 <b>🖥 Branch Build :- "${branch_name}"</b>
-<b>📥 Download Link :-</b> <a href=\"${DL_LINK}\">Here</a>
 <b>📅 Date :- "$(date +%d\ %B\ %Y)"</b>
 <b>🕔 Time Zone :- "$(date +%T)"</b>
 
@@ -66,7 +61,6 @@ echo ━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━
 msg Upload rom succes..
 echo ━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━
 echo
-echo Download Link: ${DL_LINK}
 echo
 echo
 }
