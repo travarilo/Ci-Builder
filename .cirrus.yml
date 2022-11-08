@@ -24,7 +24,6 @@ task:
      - git config --global user.email "travarilo@gmail.com"
      - echo "$credentials" > ~/.git-credentials
      - git config --global credential.helper store --file=~/.git-credentials
-     - ./script/sync.sh
      
   Build-rom_script:
      - ./script/building.sh
