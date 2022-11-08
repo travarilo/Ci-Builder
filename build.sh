@@ -8,8 +8,11 @@ source $CIRRUS_WORKING_DIR/script/config
 timeStart
 
 source build/envsetup.sh
+make clean
+source build/envsetup.sh
 export TZ=Asia/Jakarta
 export WITH_GAPPS=true
+export MINIMAL_GAPPS=true
 export KBUILD_BUILD_USER=travarilo
 export KBUILD_BUILD_HOST=BananaDroid
 export BUILD_USERNAME=travarilo
