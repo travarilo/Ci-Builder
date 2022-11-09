@@ -8,7 +8,7 @@ env:
   credentials: "ENCRYPTED[!9c169f4a5dc4363700addcb64e823ddf9bac3b781dc42dd240d4f78ee300fdda8f44c1f11356699b129ba33e1982b210!]"
 
 task:
-  name: "Building BananaDroid"
+  name: "Compiling BananaDroid"
   only_if: $CIRRUS_REPO_OWNER == 'travarilo'
   timeout_in: 120m
   container:
