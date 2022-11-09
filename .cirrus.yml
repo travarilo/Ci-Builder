@@ -13,7 +13,7 @@ task:
   timeout_in: 120m
   container:
     image: gcc:latest
-    cpu: 16
+    cpu: 8
     memory: 32G
 
   Load-Ccache_background_script:
